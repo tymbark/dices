@@ -65,7 +65,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			rzucaj();
 			
 			break;
-		case R.id.K100:
+		case R.id.K100: 
 			k = 100;
 			break;
 		case R.id.x1:
