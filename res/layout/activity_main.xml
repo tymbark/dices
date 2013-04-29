@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/K10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="K10" />
+
+        <Button
+            android:id="@+id/K100"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="K100" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/x1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x1" />
+
+        <Button
+            android:id="@+id/x2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x2" />
+
+        <Button
+            android:id="@+id/x3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x3" />
+        
+        <Button
+            android:id="@+id/x4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x4" />
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+    <!--  
+    <TextView
+        android:id="@+id/liczby"
+        android:layout_width="303dp"
+        android:layout_height="213dp"
+        android:layout_gravity="center"
+        android:textColor= "#FF0000"
+        android:text="100 100 100 100"
+        android:textSize="50dp" />
+   -->
+
+	<Button
+	    android:id = "@+id/liczba10"
+	    android:background="@drawable/empty_d10"
+	    android:layout_width="160dp"
+	    android:layout_height="160dp"
+	    android:gravity="center"
+	    android:textColor="#ffffff"
+	    android:text = "100"
+	    android:textSize = "50dp"/>
+
+	<Button
+	    android:id="@+id/liczba1"
+	    android:layout_width="160dp"
+	    android:layout_height="160dp"
+	    android:background="@drawable/empty_d10"
+	    android:gravity="center"
+	    android:text="100"
+	    android:textColor="#ffffff"
+	    android:textSize="50dp" />
+	
+    </LinearLayout>
+        
+    <Button
+        android:id="@+id/rzucaj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Rzucaj" />
+
+</LinearLayout>
