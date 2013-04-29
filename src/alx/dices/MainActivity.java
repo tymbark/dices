@@ -2,7 +2,6 @@ package alx.dices;
 
 import android.os.Bundle;
 import android.app.Activity;
-//import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener; 
 import android.widget.Button;
@@ -12,34 +11,37 @@ public class MainActivity extends Activity implements OnClickListener {
 	private int mCounter=0;
 	private Button mK10;
 	private Button mK100;
-	private TextView K1;
-	private TextView K10;
-	private TextView K2;
-	private TextView K20;
+
+	private Button mRzut1;
+	private Button mRzut10;
+	private Button mRzut2;
+	private Button mRzut20; //// by³o TextView
 	private Button mRzucaj;
-	private int k = 100;
+	private int k = 10;
+	private int number_result;
 	private int x = 1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		mK10 = (Button)findViewById(R.id.K10);
-		mK100 = (Button)findViewById(R.id.K100); 
-		//mKx = (Button)findViewById(R.id.K);
-		//mX = (Button)findViewById(R.id.x);
-		//mKtv = (TextView)findViewById(R.id.K_txt); 
-		//mXtv = (TextView)findViewById(R.id.x_txt);
-		//Ktv = (Button)findViewById(R.id.liczby);
-		K1 = (Button)findViewById(R.id.liczba1);
-		K10 = (Button)findViewById(R.id.liczba10);
-		K2 = (Button)findViewById(R.id.liczba2);
-		K20 = (Button)findViewById(R.id.liczba20);
+		mK10 = (Button)findViewById(R.id.przyciskK10);
+		mK100 = (Button)findViewById(R.id.przyciskK100); 
+		mRzut1 = (Button)findViewById(R.id.liczba1);
+		mRzut10 = (Button)findViewById(R.id.liczba10);
+		mRzut2 = (Button)findViewById(R.id.liczba2);
+		mRzut20 = (Button)findViewById(R.id.liczba20);
 		mRzucaj = (Button)findViewById(R.id.rzucaj);
+
+		
 		
 		mK10.setOnClickListener(this);
 		mK100.setOnClickListener(this);
-		//mKx.setOnClickListener(this);
-		//mX.setOnClickListener(this);
+		
+		mRzut1.setOnClickListener(this);
+		mRzut10.setOnClickListener(this);
+		mRzut2.setOnClickListener(this);
+		mRzut20.setOnClickListener(this);
+
 		mRzucaj.setOnClickListener(this);
 		Rand.get();
 	}
@@ -48,112 +50,128 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		int id = v.getId();
 		String wynik = "";
-		
+
 		switch(id){
-		case R.id.K10:
+		case R.id.przyciskK10:
+			x = 1;
 			if (mCounter == 0){
-				k=10;
-				wynik += rzucaj();
-				K1.setText(wynik);
-				K1.setVisibility(View.VISIBLE);
-				K10.setVisibility(View.INVISIBLE);
-				K2.setVisibility(View.INVISIBLE);
-				K20.setVisibility(View.INVISIBLE);
+				mRzut1.setText("");
+				mRzut1.setVisibility(View.VISIBLE);
+				mRzut10.setVisibility(View.INVISIBLE);
+				mRzut2.setVisibility(View.INVISIBLE);
+				mRzut20.setVisibility(View.INVISIBLE);
 				mCounter++;
 			}else if(mCounter == 1){
-				k=10;
-				wynik += rzucaj();
-				K10.setText(wynik);
-				K10.setVisibility(View.VISIBLE);
+				mRzut10.setText("");
+				mRzut10.setVisibility(View.VISIBLE);
+				mRzut2.setVisibility(View.INVISIBLE);
+				mRzut20.setVisibility(View.INVISIBLE);
 				mCounter++;
 			}else if(mCounter == 2){
-				k=10;
-				wynik += rzucaj();
-				K2.setText(wynik);
-				K2.setVisibility(View.VISIBLE);
+				mRzut2.setText("");
+				mRzut2.setVisibility(View.VISIBLE);
+				mRzut20.setVisibility(View.INVISIBLE);
 				mCounter++;
 			}else if(mCounter == 3){
-				k=10;
-				wynik += rzucaj();
-				K20.setText(wynik);
-				K20.setVisibility(View.VISIBLE);
+				mRzut20.setText("");
+				mRzut20.setVisibility(View.VISIBLE);
 				mCounter++;
 			}else {
-				K1.setVisibility(View.INVISIBLE);
-				K10.setVisibility(View.INVISIBLE);
-				K2.setVisibility(View.INVISIBLE);
-				K20.setVisibility(View.INVISIBLE);
+				mRzut1.setVisibility(View.INVISIBLE);
+				mRzut10.setVisibility(View.INVISIBLE);
+				mRzut2.setVisibility(View.INVISIBLE);
+				mRzut20.setVisibility(View.INVISIBLE);
 				mCounter = 0;
 			}
 			
 			break;
-		case R.id.K100: 
+		case R.id.przyciskK100: 
+			x = 10;
 			if (mCounter == 0){
-				k=10;
-				wynik += 10*rzucaj();
-				K1.setText(wynik);
-				wynik = "";
-				wynik += rzucaj();
-				K10.setText(wynik);
-				K1.setVisibility(View.VISIBLE);
-				K10.setVisibility(View.VISIBLE);
-				K2.setVisibility(View.INVISIBLE);
-				K20.setVisibility(View.INVISIBLE);
-				mCounter = mCounter+10;
-			}else if(mCounter == 10){
-				k=10;
-				wynik += 10*rzucaj();
-				K2.setText(wynik);
-				wynik = "";
-				wynik += rzucaj();
-				K20.setText(wynik);
-				K2.setVisibility(View.VISIBLE);
-				K20.setVisibility(View.VISIBLE);
+				mRzut1.setText("");
+				mRzut10.setText("");
+				mRzut2.setText("");
+				mRzut20.setText("");
+				mRzut1.setVisibility(View.VISIBLE);
+				mRzut10.setVisibility(View.VISIBLE);
+				mRzut2.setVisibility(View.INVISIBLE);
+				mRzut20.setVisibility(View.INVISIBLE);
 				mCounter = mCounter+10;
 			}else{
-				K1.setVisibility(View.INVISIBLE);
-				K10.setVisibility(View.INVISIBLE);
-				K2.setVisibility(View.INVISIBLE);
-				K20.setVisibility(View.INVISIBLE);
+				mRzut1.setVisibility(View.INVISIBLE);
+				mRzut10.setVisibility(View.INVISIBLE);
+				mRzut2.setVisibility(View.INVISIBLE);
+				mRzut20.setVisibility(View.INVISIBLE);
 				mCounter = 0;
 			}
 			break;
+			
+		case R.id.liczba1:
+			number_result = rzucaj();
+			if (x==10) wynik += number_result+"0";
+			else wynik += number_result;
+			mRzut1.setText(wynik);
+			wynik = "";
+			break;
+			
+		case R.id.liczba10:
+			number_result = rzucaj();
+			wynik += number_result;
+			mRzut10.setText(wynik);
+			wynik = "";
+			break;
+			
+		case R.id.liczba2:
+			number_result = rzucaj();
+			if (x==10) wynik += number_result+"0";
+			else wynik += number_result;
+			mRzut2.setText(wynik);
+			wynik = "";
+			break;
+			
+		case R.id.liczba20:
+			number_result = rzucaj();
+			if (x==10) wynik += number_result+"0";
+			else wynik += number_result;
+			mRzut20.setText(wynik);
+			wynik = "";
+			break;
+			
 		case R.id.rzucaj:
-			K1.setVisibility(View.INVISIBLE);
-			K10.setVisibility(View.INVISIBLE);
-			K2.setVisibility(View.INVISIBLE);
-			K20.setVisibility(View.INVISIBLE);
+			number_result = rzucaj();
+			if (x==10) wynik += number_result+"0";
+			else wynik += number_result;
+			mRzut1.setText(wynik);
+			wynik = "";
+			
+			number_result = rzucaj();
+			wynik += number_result;
+			mRzut10.setText(wynik);
+			wynik = "";
+			
+			number_result = rzucaj();
+			wynik += number_result;
+			mRzut2.setText(wynik);
+			wynik = "";
+			
+			number_result = rzucaj();
+			wynik += number_result;
+			mRzut20.setText(wynik);
+			wynik = "";
+			
 			break;
 		}
-		//mStatus.setText("k = "+k+", x = "+x); 
 	}
 
 	private int rzucaj() {
-		String wynik = "";
 		int rzut = 0;
 		int a = 0;
-		//String d10 = "";
-		//String d20;
-		//String d1 = "";
-		//String d2 = "";
-		//String d3 = "";
-		//String d4 = "";
-		for(int i=0;i<x;i++){
 
-			for (int j=0 ; j<2 ; j++){
-				rzut = Rand.get().nextInt(k)+1 + rzut;
-			} 
-			a = rzut/2;
-			//wyniki += (a + " ");
-
-			//d10 += ((a/10)*10);
-			//d1 += (a-((a/10)*10));
-			//K10.setText(d10);
-			//K10.setVisibility(View.INVISIBLE);
-			//K1.setText(d1);
-			//wynik += (a);
-		}
+		for (int j=0 ; j<2 ; j++){
+			rzut = Rand.get().nextInt(k) + rzut;
+		} 
+		a = rzut/2;
+		
 		return a;
 	}
-
 }
