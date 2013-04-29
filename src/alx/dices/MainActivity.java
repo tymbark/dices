@@ -62,6 +62,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		switch(id){
 		case R.id.K10:
 			k = 10;
+			rzucaj();
+			
 			break;
 		case R.id.K100:
 			k = 100;
