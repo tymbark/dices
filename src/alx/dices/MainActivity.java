@@ -41,7 +41,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		mRzut10.setOnClickListener(this);
 		mRzut2.setOnClickListener(this);
 		mRzut20.setOnClickListener(this);
-
 		mRzucaj.setOnClickListener(this);
 		Rand.get();
 	}
@@ -167,10 +166,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		int rzut = 0;
 		int a = 0;
 
-		for (int j=0 ; j<2 ; j++){
+		for (int j=0 ; j<1 ; j++){
 			rzut = Rand.get().nextInt(k) + rzut;
 		} 
-		a = rzut/2;
+		//a = rzut/2;
+		a = rzut;
 		
 		return a;
 	}
